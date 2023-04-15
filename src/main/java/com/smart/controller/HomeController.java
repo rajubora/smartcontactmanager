@@ -7,10 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -71,6 +68,14 @@ public class HomeController {
         User res= this.userRepository.save(user);
         model.addAttribute("user", res);
         return "signup";
+    }
+
+  // custom login page handler
+    @GetMapping("/signin")
+    public  String customLogin( Model m){
+
+       return "login";
+
     }
 
 
